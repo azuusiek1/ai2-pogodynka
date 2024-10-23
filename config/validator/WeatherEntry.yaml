@@ -1,0 +1,59 @@
+App\Entity\WeatherEntry:
+    properties:
+        location:
+            - NotBlank: { groups: ['create', 'edit'] }
+        date:
+            - NotBlank: { groups: ['create', 'edit'] }
+            - Type:
+                type: \DateTime
+                message: "The date must be a valid date format."
+                groups: ['create', 'edit']
+        temperature:
+            - NotBlank: { groups: ['create', 'edit'] }
+            - Type:
+                type: numeric
+                message: "Temperature must be a valid number."
+                groups: ['create', 'edit']
+            - Range:
+                min: -50
+                max: 60
+                groups: ['create', 'edit']
+        feels_like_temperature:
+            - Type:
+                type: numeric
+                message: "Feels like temperature must be a valid number."
+                groups: ['create', 'edit']
+            - Range:
+                min: -50
+                max: 60
+                groups: ['create', 'edit']
+        humidity:
+            - NotBlank: { groups: ['create', 'edit'] }
+            - Type:
+                type: numeric
+                message: "Humidity must be a valid number."
+                groups: ['create', 'edit']
+            - Range:
+                min: 0
+                max: 100
+                groups: ['create', 'edit']
+        precipitation:
+            - NotBlank: { groups: ['create', 'edit'] }
+            - Type:
+                type: numeric
+                message: "Precipitation must be a valid number."
+                groups: ['create', 'edit']
+            - Range:
+                min: 0
+                max: 500
+                groups: ['create', 'edit']
+        wind_speed:
+            - NotBlank: { groups: ['create', 'edit'] }
+            - Type:
+                type: numeric
+                message: "Wind speed must be a valid number."
+                groups: ['create', 'edit']
+            - Range:
+                min: 0
+                max: 150
+                groups: ['create', 'edit']

@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New WeatherEntry{% endblock %}
+
+{% block body %}
+    <h1>Create new WeatherEntry</h1>
+
+    {{ include('weather_entry/_form.html.twig') }}
+
+    <a href="{{ path('app_weather_entry_index') }}">back to list</a>
+{% endblock %}
