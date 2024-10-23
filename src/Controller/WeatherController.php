@@ -21,7 +21,7 @@ class WeatherController extends AbstractController
         if (!$location) {
             throw $this->createNotFoundException('Location not found');
         }
-    
+
         $weatherEntries = $weatherEntryRepository->findByLocation($location);
     
         return $this->render('weather/city.html.twig', [
