@@ -36,6 +36,16 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ path('app_weather_entry_index') }}">Weather Forecasts</a>
                     </li>
+                    {% if is_granted('ROLE_USER') %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('app_logout') }}">Logout</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('app_login') }}">Login</a>
+                        </li>
+                    {% endif %}
+
                 </ul>
             </div>
         </div>
