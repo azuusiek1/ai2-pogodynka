@@ -14,6 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/weatherentry')]
 class WeatherEntryController extends AbstractController
 {
+    #[IsGranted('ROLE_WEATHERENTRY_INDEX')]
     #[Route('/', name: 'app_weather_entry_index', methods: ['GET'])]
     public function index(WeatherEntryRepository $weatherEntryRepository): Response
     {
@@ -22,6 +23,7 @@ class WeatherEntryController extends AbstractController
         ]);
     }
 
+    #[IsGranted('ROLE_WEATHERENTRY_NEW')]
     #[Route('/new', name: 'app_weather_entry_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
@@ -44,6 +46,7 @@ class WeatherEntryController extends AbstractController
         ]);
     }
 
+    #[IsGranted('ROLE_WEATHERENTRY_SHOW')]
     #[Route('/{id}', name: 'app_weather_entry_show', methods: ['GET'])]
     public function show(WeatherEntry $weatherEntry): Response
     {
@@ -52,6 +55,7 @@ class WeatherEntryController extends AbstractController
         ]);
     }
 
+    #[IsGranted('ROLE_WEATHERENTRY_EDIT')]
     #[Route('/{id}/edit', name: 'app_weather_entry_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, WeatherEntry $weatherEntry, EntityManagerInterface $entityManager): Response
     {
@@ -72,6 +76,7 @@ class WeatherEntryController extends AbstractController
         ]);
     }
 
+    #[IsGranted('ROLE_WEATHERENTRY_DELETE')]
     #[Route('/{id}', name: 'app_weather_entry_delete', methods: ['POST'])]
     public function delete(Request $request, WeatherEntry $weatherEntry, EntityManagerInterface $entityManager): Response
     {

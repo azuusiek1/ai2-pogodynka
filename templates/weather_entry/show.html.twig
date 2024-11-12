@@ -40,7 +40,11 @@
 
     <a href="{{ path('app_weather_entry_index') }}">back to list</a>
 
-    <a href="{{ path('app_weather_entry_edit', {'id': weather_entry.id}) }}">edit</a>
+    {% if is_granted('ROLE_WEATHERENTRY_EDIT') %}
+        <a href="{{ path('app_weather_entry_edit', {'id': weather_entry.id}) }}">edit</a>
+    {% endif %}
 
-    {{ include('weather_entry/_delete_form.html.twig') }}
+    {% if is_granted('ROLE_WEATHERENTRY_DELETE') %}
+        {{ include('weather_entry/_delete_form.html.twig') }}
+    {% endif %}
 {% endblock %}
