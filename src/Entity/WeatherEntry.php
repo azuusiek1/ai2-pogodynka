@@ -65,6 +65,17 @@ class WeatherEntry
         return $this;
     }
 
+    public function getFahrenheit(): ?float
+    {
+        $celsius = $this->getTemperature();
+
+        if ($celsius === null) {
+            return null;
+        }
+
+        return ($celsius * 9 / 5) + 32;
+    }
+
     public function getTemperature(): ?string
     {
         return $this->temperature;
